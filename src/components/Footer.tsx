@@ -21,11 +21,12 @@ export default function Footer() {
               探索
             </h4>
             <div className="space-y-3">
-              {[
-                { href: '/articles', label: '文章' },
-                { href: '/tags', label: '标签' },
-                { href: '/about', label: '关于' },
-              ].map((item) => (
+                  {[
+                    { href: '/articles', label: '文章' },
+                    { href: '/tags', label: '标签' },
+                    { href: '/about', label: '关于' },
+                    { href: '/admin', label: '管理' },
+                  ].map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
