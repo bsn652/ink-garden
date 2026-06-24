@@ -29,15 +29,20 @@ function parseFrontmatter(content: string) {
     if (value.startsWith("'") && value.endsWith("'")) value = value.slice(1, -1);
     if (value.startsWith('"') && value.endsWith('"')) value = value.slice(1, -1);
     if (key === 'tags') {
-      try { 
-        value = JSON.parse(value.replace(/'/g, '"'));
-      } catch { 
-        value = value.replace(/[\[\]']/g, '').split(',').map((s: string) => s.trim()).filter(Boolean);
-      }
+      try { value = JSON.parse(value.replace(/'/g, '"')); }
+      catch { value = value.replace(/[\[\]']/g, '').split(',').map((s: string) => s.trim()).filter(Boolean); }
     }
     frontmatter[key] = value;
   }
   return { data: frontmatter, content: match[2].trim() };
+}
+
+// UTF-8 安全 base64 解码
+function b64DecodeUnicode(str: string) {
+  const binary = atob(str.replace(/\n/g, ''));
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+  return new TextDecoder('utf-8').decode(bytes);
 }
 
 export async function getAllSlugs(): Promise<string[]> {
@@ -46,33 +51,16 @@ export async function getAllSlugs(): Promise<string[]> {
   if (!res.ok) return [];
   const files = await res.json();
   if (!Array.isArray(files)) return [];
-  return files
-    .filter((f: any) => f.name?.endsWith('.md'))
-    .map((f: any) => f.name.replace('.md', ''));
+  return files.filter((f: any) => f.name?.endsWith('.md')).map((f: any) => f.name.replace('.md', ''));
 }
 
 export async function getPostBySlug(slug: string): Promise<GitHubPost | null> {
   try {
-    // 使用 GitHub API (支持 CORS)
     const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${POSTS_PATH}/${slug}.md?ref=${GITHUB_BRANCH}`;
-    const res = await fetch(url, {
-      headers: { 'Accept': 'application/vnd.github.v3+json' }
-    });
+    const res = await fetch(url, { headers: { 'Accept': 'application/vnd.github.v3+json' } });
     if (!res.ok) return null;
     const data = await res.json();
-    
-    // GitHub API 返回 base64 编码的内容
     if (!data.content) return null;
-    
-    // 正确解码 base64 -> UTF-8 (支持中文)
-    function b64DecodeUnicode(str: string) {
-      const binary = atob(str.replace(/\n/g, ''));
-      const bytes = new Uint8Array(binary.length);
-      for (let i = 0; i < binary.length; i++) {
-        bytes[i] = binary.charCodeAt(i);
-      }
-      return new TextDecoder('utf-8').decode(bytes);
-    }
     
     const raw = b64DecodeUnicode(data.content);
     const { data: frontmatter, content } = parseFrontmatter(raw);
@@ -83,21 +71,15 @@ export async function getPostBySlug(slug: string): Promise<GitHubPost | null> {
     const date = new Date(dateStr);
 
     return {
-      slug,
-      content,
+      slug, content,
       title: frontmatter.title || slug,
       date: date.toISOString(),
-      formattedDate: date.toLocaleDateString('zh-CN', {
-        year: 'numeric', month: 'long', day: 'numeric',
-      }),
+      formattedDate: date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' }),
       tags: frontmatter.tags || [],
       description: frontmatter.description || '',
       readingTime,
     };
-  } catch (e) {
-    console.error('Failed to fetch post:', slug, e);
-    return null;
-  }
+  } catch { return null; }
 }
 
 export async function getAllPosts(): Promise<GitHubPost[]> {
@@ -106,11 +88,4 @@ export async function getAllPosts(): Promise<GitHubPost[]> {
     .filter((p): p is GitHubPost => p !== null)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   return posts;
-}
-
-export async function getAllTags(): Promise<string[]> {
-  const posts = await getAllPosts();
-  const tagSet = new Set<string>();
-  posts.forEach(p => p.tags.forEach(t => tagSet.add(t)));
-  return Array.from(tagSet).sort();
 }

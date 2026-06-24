@@ -36,7 +36,9 @@ export default function RootLayout({
   return (
     <html lang="zh-CN" className="scroll-smooth">
       <head>
-        <link rel="alternate" type="application/rss+xml" title={siteConfig.name} href="/rss.xml" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
       </head>
       <body className="min-h-screen bg-paper text-ink-black">
         <InkBackground />

@@ -8,95 +8,69 @@ export default function InkBackground() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const resize = () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // 水墨粒子
+    const particles: { x: number; y: number; size: number; speedX: number; speedY: number; alpha: number }[] = [];
+    for (let i = 0; i < 25; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 80 + 40,
+        speedX: (Math.random() - 0.5) * 0.15,
+        speedY: (Math.random() - 0.5) * 0.1,
+        alpha: Math.random() * 0.04 + 0.015,
+      });
+    }
+
+    function animate() {
+      if (!ctx || !canvas) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach((p) => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+        if (p.x < -p.size) p.x = canvas.width + p.size;
+        if (p.x > canvas.width + p.size) p.x = -p.size;
+        if (p.y < -p.size) p.y = canvas.height + p.size;
+        if (p.y > canvas.height + p.size) p.y = -p.size;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(91, 140, 90, ${p.alpha})`;
+        ctx.fill();
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    const handleResize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
-    resize();
-    window.addEventListener('resize', resize);
-
-    // Subtle mountain silhouettes
-    const drawMountains = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Very subtle background mist
-      const gradient = ctx.createRadialGradient(
-        canvas.width / 2, canvas.height * 0.3, 0,
-        canvas.width / 2, canvas.height * 0.3, canvas.width * 0.6
-      );
-      gradient.addColorStop(0, 'rgba(200, 195, 180, 0.15)');
-      gradient.addColorStop(1, 'rgba(248, 246, 242, 0)');
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // Draw ink mountain silhouettes
-      const mountains = [
-        { peak: 0.25, height: 0.3, width: 0.4, x: -0.1, opacity: 0.03 },
-        { peak: 0.35, height: 0.25, width: 0.35, x: 0.3, opacity: 0.04 },
-        { peak: 0.3, height: 0.2, width: 0.3, x: 0.6, opacity: 0.025 },
-        { peak: 0.2, height: 0.15, width: 0.25, x: 0.8, opacity: 0.02 },
-      ];
-
-      mountains.forEach(({ peak, height, width, x: startX, opacity }) => {
-        ctx.beginPath();
-        ctx.moveTo(startX * canvas.width, canvas.height);
-        ctx.quadraticCurveTo(
-          (startX + width * 0.25) * canvas.width,
-          canvas.height * (1 - peak * 2),
-          (startX + width * 0.5) * canvas.width,
-          canvas.height * (1 - height)
-        );
-        ctx.quadraticCurveTo(
-          (startX + width * 0.75) * canvas.width,
-          canvas.height * (1 - peak * 1.5),
-          (startX + width) * canvas.width,
-          canvas.height
-        );
-        ctx.fillStyle = `rgba(26, 26, 26, ${opacity})`;
-        ctx.fill();
-      });
-    };
-
-    drawMountains();
-
-    let animationId: number;
-    let scrollY = 0;
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Apply subtle parallax
-      ctx.save();
-      ctx.translate(0, scrollY * 0.1);
-      drawMountains();
-      ctx.restore();
-
-      animationId = requestAnimationFrame(animate);
-    };
-
-    const handleScroll = () => {
-      scrollY = window.scrollY;
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    animate();
-
-    return () => {
-      window.removeEventListener('resize', resize);
-      window.removeEventListener('scroll', handleScroll);
-      cancelAnimationFrame(animationId);
-    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0"
-      aria-hidden="true"
-    />
+    <>
+      {/* 水墨粒子背景 */}
+      <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" />
+      
+      {/* 远山 SVG */}
+      <div className="fixed inset-x-0 bottom-0 pointer-events-none z-0 opacity-[0.03]" aria-hidden="true">
+        <svg viewBox="0 0 1440 400" className="w-full h-auto">
+          <path d="M0,400 L0,280 Q120,200 240,260 Q360,320 480,220 Q540,160 620,200 Q700,240 780,180 Q860,120 960,200 Q1060,280 1140,220 Q1220,160 1320,240 Q1380,280 1440,260 L1440,400 Z" fill="currentColor" className="text-ink-black"/>
+          <path d="M0,400 L0,320 Q180,260 320,300 Q460,340 580,280 Q700,220 840,260 Q980,300 1080,240 Q1180,180 1320,260 Q1380,300 1440,290 L1440,400 Z" fill="currentColor" className="text-ink-black" opacity="0.6"/>
+          <path d="M0,400 L0,360 Q200,320 400,350 Q600,380 800,340 Q1000,300 1200,350 Q1320,380 1440,360 L1440,400 Z" fill="currentColor" className="text-ink-black" opacity="0.3"/>
+        </svg>
+      </div>
+    </>
   );
 }

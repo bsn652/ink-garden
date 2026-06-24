@@ -1,77 +1,100 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { siteConfig } from '@/lib/site-config';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-ink-black">
-      {/* Background gradient */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-ink-black via-ink-black/95 to-ink-black/90" />
-        {/* Mist effect */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-r from-transparent via-gold/10 to-transparent blur-[120px]" />
-        </div>
+    <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden bg-ink-black">
+      {/* 水墨晕染效果 */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-jade/3 blur-[120px] animate-pulse" style={{animationDuration: '8s'}} />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-ink-blue/3 blur-[100px] animate-pulse" style={{animationDuration: '10s'}} />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        {/* Subtle label */}
+      {/* 装饰性远山 */}
+      <div className="absolute bottom-0 inset-x-0 h-64 opacity-[0.04]">
+        <svg viewBox="0 0 1440 300" className="w-full h-full">
+          <path d="M0,300 L0,220 Q100,160 200,180 Q350,210 450,160 Q550,110 650,150 Q750,190 850,130 Q950,70 1050,140 Q1150,210 1250,160 Q1350,110 1440,150 L1440,300 Z" fill="white" />
+          <path d="M0,300 L0,250 Q150,200 300,230 Q450,260 550,220 Q650,180 750,210 Q850,240 950,200 Q1050,160 1150,210 Q1250,260 1440,240 L1440,300 Z" fill="white" opacity="0.6" />
+        </svg>
+      </div>
+
+      <div className="relative z-10 text-center max-w-3xl mx-auto">
+        {/* 印章装饰 */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, ease: 'easeOut' }}
           className="mb-8"
         >
-          <span className="inline-block text-xs text-gold/60 tracking-[0.3em] uppercase font-light">
-            Digital Garden
-          </span>
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full border border-white/10 mb-4">
+            <span className="text-seal font-serif text-sm" style={{ fontFamily: 'serif' }}>墨</span>
+          </div>
         </motion.div>
 
-        {/* Main title */}
+        {/* 标题 */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-8 leading-tight"
+          transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.4, 0.25, 1] }}
+          className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-[1.1] mb-6"
         >
-          在数字世界中
-          <br />
-          <span className="bg-gradient-to-r from-gold via-gold-light to-gold bg-clip-text text-transparent">
-            寻找诗意栖居
-          </span>
+          {siteConfig.name}
         </motion.h1>
 
-        {/* Description */}
+        {/* 副标题 */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto leading-relaxed font-light tracking-wide"
+          transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
+          className="text-white/30 text-sm md:text-base tracking-[0.3em] uppercase mb-12 font-sans"
         >
           {siteConfig.description}
         </motion.p>
 
-        {/* Scroll indicator */}
+        {/* 装饰线 */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 1.5, delay: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
+          className="w-20 h-px bg-white/10 mx-auto mb-12"
+        />
+
+        {/* 按钮组 */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          className="flex flex-wrap items-center justify-center gap-4"
         >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-6 h-10 rounded-full border border-white/20 flex items-start justify-center p-2"
+          <Link
+            href="/articles"
+            className="group relative inline-flex items-center gap-2 px-8 py-3 bg-white/5 hover:bg-white/10 border border-white/10 text-white/80 text-sm tracking-[0.2em] uppercase transition-all duration-500"
           >
-            <motion.div className="w-1 h-2 rounded-full bg-white/40" />
-          </motion.div>
+            <span>阅读文章</span>
+            <span className="w-4 h-px bg-white/20 group-hover:w-6 transition-all duration-500" />
+          </Link>
+          <Link
+            href="/about"
+            className="group relative inline-flex items-center gap-2 px-8 py-3 text-white/40 hover:text-white/70 text-sm tracking-[0.2em] uppercase transition-all duration-500"
+          >
+            <span>关于我</span>
+            <span className="w-4 h-px bg-white/10 group-hover:w-6 transition-all duration-500" />
+          </Link>
         </motion.div>
       </div>
 
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-paper to-transparent" />
+      {/* 滚动提示 */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      >
+        <div className="w-px h-12 bg-gradient-to-b from-white/20 to-transparent" />
+      </motion.div>
     </section>
   );
 }
