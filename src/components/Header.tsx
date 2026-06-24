@@ -10,7 +10,6 @@ export default function Header() {
     { href: '/', label: '首页' },
     { href: '/articles', label: '文章' },
     { href: '/tags', label: '标签' },
-    { href: '/about', label: '关于' },
     { href: '/admin', label: '管理' },
   ];
 
@@ -18,9 +17,9 @@ export default function Header() {
     <header className="fixed top-0 inset-x-0 z-50 mix-blend-difference">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="group flex items-center gap-2">
-          <span className="text-sm text-white/70 font-serif tracking-[0.3em]">墨·亭</span>
+          <span className="text-sm text-white/70 font-serif tracking-[0.3em]">帛书楠舍</span>
           <span className="w-px h-4 bg-white/20" />
-          <span className="text-[10px] text-white/30 tracking-[0.2em] uppercase font-sans">Ink Garden</span>
+          <span className="text-[10px] text-white/30 tracking-[0.2em] uppercase font-sans">Bó Shū Nán Shè</span>
         </Link>
 
         {/* Desktop nav */}

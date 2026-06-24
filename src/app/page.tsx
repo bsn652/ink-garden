@@ -84,27 +84,29 @@ export default function HomePage() {
         <div className="ink-divider" />
       </div>
 
-      {/* 关于区域 */}
+      {/* 副区域 */}
       <section className="relative py-32 px-6">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
             <div className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-ink-black/10 mb-6">
-              <span className="text-seal font-serif text-xs">墨</span>
+              <span className="text-jade font-serif text-xs">帛</span>
             </div>
             <h2 className="text-xl md:text-3xl font-serif font-bold text-ink-black leading-relaxed">
-              数字花园 · 笔墨之间
+              泼墨山水间 · 一书一世界
             </h2>
             <p className="text-sm text-ink-dark/40 mt-6 leading-relaxed max-w-lg mx-auto">
-              记录思考，分享知识，在数字世界中留下一片水墨天地。
+              在数字世界中，泼墨挥毫，书写属于自己的山水篇章。
             </p>
             <div className="mt-8">
-              <Link
-                href="/about"
+              <a
+                href="https://github.com/bsn652"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-xs text-ink-dark/30 hover:text-ink-black tracking-[0.2em] uppercase transition-colors group"
               >
-                了解更多
+                访问 GitHub
                 <span className="w-4 h-px bg-ink-dark/20 group-hover:w-6 transition-all duration-300" />
-              </Link>
+              </a>
             </div>
           </ScrollReveal>
         </div>

@@ -15,9 +15,9 @@ export default function Footer() {
         {/* 品牌 */}
         <div className="text-center mb-12">
           <Link href="/" className="inline-flex items-center gap-3 group">
-            <span className="text-xs text-ink-black/80 font-serif tracking-[0.3em]">墨·亭</span>
+            <span className="text-xs text-ink-black/80 font-serif tracking-[0.3em]">帛书楠舍</span>
             <span className="w-px h-3 bg-ink-black/10" />
-            <span className="text-[9px] text-ink-black/30 tracking-[0.2em] uppercase">Ink Garden</span>
+            <span className="text-[9px] text-ink-black/30 tracking-[0.2em] uppercase">Bó Shū Nán Shè</span>
           </Link>
           <p className="text-sm text-ink-dark/40 mt-4 max-w-md mx-auto leading-relaxed">
             {siteConfig.description}
@@ -29,7 +29,6 @@ export default function Footer() {
           {[
             { href: '/articles', label: '文章' },
             { href: '/tags', label: '标签' },
-            { href: '/about', label: '关于' },
             { href: '/admin', label: '管理' },
           ].map((item) => (
             <Link

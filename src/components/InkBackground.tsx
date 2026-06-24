@@ -16,14 +16,14 @@ export default function InkBackground() {
 
     // 水墨粒子
     const particles: { x: number; y: number; size: number; speedX: number; speedY: number; alpha: number }[] = [];
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 20; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        size: Math.random() * 80 + 40,
-        speedX: (Math.random() - 0.5) * 0.15,
-        speedY: (Math.random() - 0.5) * 0.1,
-        alpha: Math.random() * 0.04 + 0.015,
+        size: Math.random() * 100 + 50,
+        speedX: (Math.random() - 0.5) * 0.1,
+        speedY: (Math.random() - 0.5) * 0.08,
+        alpha: Math.random() * 0.03 + 0.01,
       });
     }
 
@@ -60,17 +60,25 @@ export default function InkBackground() {
 
   return (
     <>
-      {/* 水墨粒子背景 */}
       <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" />
       
-      {/* 远山 SVG */}
-      <div className="fixed inset-x-0 bottom-0 pointer-events-none z-0 opacity-[0.03]" aria-hidden="true">
-        <svg viewBox="0 0 1440 400" className="w-full h-auto">
-          <path d="M0,400 L0,280 Q120,200 240,260 Q360,320 480,220 Q540,160 620,200 Q700,240 780,180 Q860,120 960,200 Q1060,280 1140,220 Q1220,160 1320,240 Q1380,280 1440,260 L1440,400 Z" fill="currentColor" className="text-ink-black"/>
-          <path d="M0,400 L0,320 Q180,260 320,300 Q460,340 580,280 Q700,220 840,260 Q980,300 1080,240 Q1180,180 1320,260 Q1380,300 1440,290 L1440,400 Z" fill="currentColor" className="text-ink-black" opacity="0.6"/>
-          <path d="M0,400 L0,360 Q200,320 400,350 Q600,380 800,340 Q1000,300 1200,350 Q1320,380 1440,360 L1440,400 Z" fill="currentColor" className="text-ink-black" opacity="0.3"/>
+      {/* 泼墨山景装饰 */}
+      <div className="fixed inset-x-0 bottom-0 pointer-events-none z-0 opacity-[0.04]" aria-hidden="true">
+        <svg viewBox="0 0 1440 500" className="w-full h-auto">
+          {/* 层叠远山 */}
+          <path d="M0,500 L0,380 Q80,340 160,360 Q280,390 380,340 Q480,290 560,320 Q660,360 740,300 Q820,240 920,310 Q1020,380 1100,330 Q1180,280 1280,340 Q1360,370 1440,350 L1440,500 Z" fill="currentColor" className="text-ink-black"/>
+          <path d="M0,500 L0,420 Q120,370 240,400 Q380,440 480,380 Q600,320 720,360 Q840,400 960,340 Q1080,280 1200,340 Q1320,390 1440,370 L1440,500 Z" fill="currentColor" className="text-ink-black" opacity="0.5"/>
+          <path d="M0,500 L0,460 Q160,410 320,440 Q480,470 640,420 Q800,370 960,400 Q1120,430 1280,380 Q1360,360 1440,390 L1440,500 Z" fill="currentColor" className="text-ink-black" opacity="0.25"/>
+          {/* 云雾 */}
+          <ellipse cx="300" cy="400" rx="200" ry="30" fill="currentColor" className="text-ink-black" opacity="0.08"/>
+          <ellipse cx="900" cy="380" rx="250" ry="25" fill="currentColor" className="text-ink-black" opacity="0.06"/>
+          <ellipse cx="1200" cy="420" rx="180" ry="20" fill="currentColor" className="text-ink-black" opacity="0.07"/>
         </svg>
       </div>
+
+      {/* 装饰性水墨元素 */}
+      <div className="fixed top-1/4 right-10 w-32 h-32 rounded-full bg-jade/2 blur-3xl pointer-events-none z-0" />
+      <div className="fixed bottom-1/3 left-10 w-48 h-48 rounded-full bg-ink-blue/2 blur-3xl pointer-events-none z-0" />
     </>
   );
 }

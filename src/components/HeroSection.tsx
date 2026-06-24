@@ -76,13 +76,15 @@ export default function HeroSection() {
             <span>阅读文章</span>
             <span className="w-4 h-px bg-white/20 group-hover:w-6 transition-all duration-500" />
           </Link>
-          <Link
-            href="/about"
+          <a
+            href="https://github.com/bsn652"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative inline-flex items-center gap-2 px-8 py-3 text-white/40 hover:text-white/70 text-sm tracking-[0.2em] uppercase transition-all duration-500"
           >
-            <span>关于我</span>
+            <span>GitHub</span>
             <span className="w-4 h-px bg-white/10 group-hover:w-6 transition-all duration-500" />
-          </Link>
+          </a>
         </motion.div>
       </div>
 
