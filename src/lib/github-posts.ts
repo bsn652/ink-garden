@@ -63,7 +63,18 @@ export async function getPostBySlug(slug: string): Promise<GitHubPost | null> {
     
     // GitHub API 返回 base64 编码的内容
     if (!data.content) return null;
-    const raw = atob(data.content.replace(/\n/g, ''));
+    
+    // 正确解码 base64 -> UTF-8 (支持中文)
+    function b64DecodeUnicode(str: string) {
+      const binary = atob(str.replace(/\n/g, ''));
+      const bytes = new Uint8Array(binary.length);
+      for (let i = 0; i < binary.length; i++) {
+        bytes[i] = binary.charCodeAt(i);
+      }
+      return new TextDecoder('utf-8').decode(bytes);
+    }
+    
+    const raw = b64DecodeUnicode(data.content);
     const { data: frontmatter, content } = parseFrontmatter(raw);
 
     const words = content.split(/\s+/).length;
