@@ -2,11 +2,15 @@ backend:
   name: github
   repo: bsn652/ink-garden
   branch: master
-  base_url: https://github.com
+  # 使用 Decap CMS 默认的 GitHub OAuth
+  # 首次使用需要用 GitHub 账号授权登录
 
 publish_mode: editorial_workflow
 media_folder: "public/images"
 public_folder: "/images"
+site_url: https://bsn652.github.io/ink-garden
+display_url: https://bsn652.github.io/ink-garden
+logo_url: https://bsn652.github.io/ink-garden/favicon.ico
 
 collections:
   - name: "posts"
