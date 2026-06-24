@@ -1,0 +1,22 @@
+﻿2026-06-24T07:20:49.2527676Z ##[group]Run npx next build
+2026-06-24T07:20:49.2528000Z [36;1mnpx next build[0m
+2026-06-24T07:20:49.2561885Z shell: /usr/bin/bash -e {0}
+2026-06-24T07:20:49.2562156Z ##[endgroup]
+2026-06-24T07:20:49.9363206Z ⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+2026-06-24T07:20:50.1179515Z Attention: Next.js now collects completely anonymous telemetry regarding usage.
+2026-06-24T07:20:50.1181246Z This information is used to shape Next.js' roadmap and prioritize features.
+2026-06-24T07:20:50.1183530Z You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+2026-06-24T07:20:50.1185047Z https://nextjs.org/telemetry
+2026-06-24T07:20:50.1185399Z 
+2026-06-24T07:20:50.1320369Z ▲ Next.js 16.2.9 (Turbopack)
+2026-06-24T07:20:50.1331278Z 
+2026-06-24T07:20:50.2007465Z   Creating an optimized production build ...
+2026-06-24T07:20:54.4329106Z ✓ Compiled successfully in 4.0s
+2026-06-24T07:20:54.4384897Z   Running TypeScript ...
+2026-06-24T07:20:58.2790367Z   Finished TypeScript in 3.8s ...
+2026-06-24T07:20:58.2832229Z   Collecting page data using 3 workers ...
+2026-06-24T07:20:58.7748714Z 
+2026-06-24T07:20:58.7750280Z > Build error occurred
+2026-06-24T07:20:58.7794927Z Error: Page "/articles/[slug]" is missing "generateStaticParams()" so it cannot be used with "output: export" config.
+2026-06-24T07:20:58.7795996Z     at ignore-listed frames
+2026-06-24T07:20:58.8036125Z ##[error]Process completed with exit code 1.
