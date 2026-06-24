@@ -1,4 +1,4 @@
-// 从 GitHub API 实时获取文章，无需重新构建
+// 从 GitHub API 实时获取文章 (无需重新构建)
 const GITHUB_OWNER = 'bsn652';
 const GITHUB_REPO = 'ink-garden';
 const GITHUB_BRANCH = 'master';
@@ -29,15 +29,15 @@ function parseFrontmatter(content: string) {
     if (value.startsWith("'") && value.endsWith("'")) value = value.slice(1, -1);
     if (value.startsWith('"') && value.endsWith('"')) value = value.slice(1, -1);
     if (key === 'tags') {
-      try { value = JSON.parse(value.replace(/'/g, '"')); } catch { value = []; }
+      try { 
+        value = JSON.parse(value.replace(/'/g, '"'));
+      } catch { 
+        value = value.replace(/[\[\]']/g, '').split(',').map((s: string) => s.trim()).filter(Boolean);
+      }
     }
     frontmatter[key] = value;
   }
-
-  return {
-    data: frontmatter,
-    content: match[2].trim(),
-  };
+  return { data: frontmatter, content: match[2].trim() };
 }
 
 export async function getAllSlugs(): Promise<string[]> {
@@ -45,38 +45,46 @@ export async function getAllSlugs(): Promise<string[]> {
   const res = await fetch(url);
   if (!res.ok) return [];
   const files = await res.json();
+  if (!Array.isArray(files)) return [];
   return files
-    .filter((f: any) => f.name.endsWith('.md'))
+    .filter((f: any) => f.name?.endsWith('.md'))
     .map((f: any) => f.name.replace('.md', ''));
 }
 
 export async function getPostBySlug(slug: string): Promise<GitHubPost | null> {
   try {
-    const url = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${POSTS_PATH}/${slug}.md`;
-    const res = await fetch(url);
+    // 使用 GitHub API (支持 CORS)
+    const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${POSTS_PATH}/${slug}.md?ref=${GITHUB_BRANCH}`;
+    const res = await fetch(url, {
+      headers: { 'Accept': 'application/vnd.github.v3+json' }
+    });
     if (!res.ok) return null;
-    const raw = await res.text();
-    const { data, content } = parseFrontmatter(raw);
+    const data = await res.json();
+    
+    // GitHub API 返回 base64 编码的内容
+    if (!data.content) return null;
+    const raw = atob(data.content.replace(/\n/g, ''));
+    const { data: frontmatter, content } = parseFrontmatter(raw);
 
     const words = content.split(/\s+/).length;
     const readingTime = Math.ceil(words / 200);
-
-    const dateStr = data.date || new Date().toISOString().split('T')[0];
+    const dateStr = frontmatter.date || new Date().toISOString().split('T')[0];
     const date = new Date(dateStr);
 
     return {
       slug,
       content,
-      title: data.title || slug,
+      title: frontmatter.title || slug,
       date: date.toISOString(),
       formattedDate: date.toLocaleDateString('zh-CN', {
         year: 'numeric', month: 'long', day: 'numeric',
       }),
-      tags: data.tags || [],
-      description: data.description || '',
+      tags: frontmatter.tags || [],
+      description: frontmatter.description || '',
       readingTime,
     };
-  } catch {
+  } catch (e) {
+    console.error('Failed to fetch post:', slug, e);
     return null;
   }
 }
