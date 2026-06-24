@@ -1,0 +1,36 @@
+﻿2026-06-24T07:42:51.0827261Z Current runner version: '2.335.1'
+2026-06-24T07:42:51.0851655Z ##[group]Runner Image Provisioner
+2026-06-24T07:42:51.0852598Z Hosted Compute Agent
+2026-06-24T07:42:51.0853151Z Version: 20260611.554
+2026-06-24T07:42:51.0853768Z Commit: 5e0782fdc9014723d3be820dd114dd31555c2bd1
+2026-06-24T07:42:51.0854414Z Build Date: 2026-06-11T21:40:46Z
+2026-06-24T07:42:51.0855026Z Worker ID: {e9030b5c-17b0-4a0d-a7e9-0861fd8e6f06}
+2026-06-24T07:42:51.0855693Z Azure Region: southcentralus
+2026-06-24T07:42:51.0856273Z ##[endgroup]
+2026-06-24T07:42:51.0857606Z ##[group]Operating System
+2026-06-24T07:42:51.0858177Z Ubuntu
+2026-06-24T07:42:51.0858635Z 24.04.4
+2026-06-24T07:42:51.0859174Z LTS
+2026-06-24T07:42:51.0859647Z ##[endgroup]
+2026-06-24T07:42:51.0860428Z ##[group]Runner Image
+2026-06-24T07:42:51.0860982Z Image: ubuntu-24.04
+2026-06-24T07:42:51.0861469Z Version: 20260615.205.1
+2026-06-24T07:42:51.0862452Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260615.205/images/ubuntu/Ubuntu2404-Readme.md
+2026-06-24T07:42:51.0864312Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260615.205
+2026-06-24T07:42:51.0865182Z ##[endgroup]
+2026-06-24T07:42:51.0866292Z ##[group]GITHUB_TOKEN Permissions
+2026-06-24T07:42:51.0868337Z Contents: read
+2026-06-24T07:42:51.0868964Z Metadata: read
+2026-06-24T07:42:51.0869471Z Pages: write
+2026-06-24T07:42:51.0870129Z ##[endgroup]
+2026-06-24T07:42:51.0872131Z Secret source: Actions
+2026-06-24T07:42:51.0872831Z Prepare workflow directory
+2026-06-24T07:42:51.1233918Z Prepare all required actions
+2026-06-24T07:42:51.1270476Z Getting action download info
+2026-06-24T07:42:51.4103604Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-06-24T07:42:51.5019474Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-06-24T07:42:51.6088194Z Download action repository 'actions/upload-pages-artifact@v3' (SHA:56afc609e74202658d3ffba0e8f6dda462b719fa)
+2026-06-24T07:42:51.7997168Z Download action repository 'actions/deploy-pages@v4' (SHA:d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e)
+2026-06-24T07:42:52.6031875Z Getting action download info
+2026-06-24T07:42:52.7157166Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-06-24T07:42:52.9266501Z Complete job name: build-and-deploy

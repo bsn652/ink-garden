@@ -1,0 +1,32 @@
+﻿2026-06-24T07:42:53.6590324Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-06-24T07:42:53.6594511Z ##[group]Run actions/setup-node@v4
+2026-06-24T07:42:53.6595381Z with:
+2026-06-24T07:42:53.6596041Z   node-version: 20
+2026-06-24T07:42:53.6596754Z   cache: npm
+2026-06-24T07:42:53.6597521Z   cache-dependency-path: package-lock.json
+2026-06-24T07:42:53.6598475Z   always-auth: false
+2026-06-24T07:42:53.6599212Z   check-latest: false
+2026-06-24T07:42:53.6607738Z   token: ***
+2026-06-24T07:42:53.6608469Z ##[endgroup]
+2026-06-24T07:42:53.8157733Z Attempting to download 20...
+2026-06-24T07:42:53.8261538Z (node:2211) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-06-24T07:42:53.8265377Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-06-24T07:42:54.6648359Z Acquiring 20.20.2 - x64 from https://github.com/actions/node-versions/releases/download/20.20.2-23521894959/node-20.20.2-linux-x64.tar.gz
+2026-06-24T07:42:55.1420967Z Extracting ...
+2026-06-24T07:42:55.1601309Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/7bd3a4da-3df6-4c89-9240-5e6d6c336f39 -f /home/runner/work/_temp/739cf8b0-7fc1-403c-abe9-c7ec799fbdce
+2026-06-24T07:42:56.1124765Z Adding to the cache ...
+2026-06-24T07:42:57.3016026Z ##[group]Environment details
+2026-06-24T07:42:57.6178454Z node: v20.20.2
+2026-06-24T07:42:57.6179020Z npm: 10.8.2
+2026-06-24T07:42:57.6179383Z yarn: 1.22.22
+2026-06-24T07:42:57.6180215Z ##[endgroup]
+2026-06-24T07:42:57.6198024Z [command]/opt/hostedtoolcache/node/20.20.2/x64/bin/npm config get cache
+2026-06-24T07:42:57.7183503Z /home/runner/.npm
+2026-06-24T07:42:57.8962129Z Cache hit for: node-cache-Linux-x64-npm-ecc20f1c1cc29aafa92dfacda12384e6c953b5a48a01473dbb9d9791ec44f933
+2026-06-24T07:42:57.9058138Z (node:2211) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-06-24T07:42:59.0456354Z Received 118239592 of 122433896 (96.6%), 112.6 MBs/sec
+2026-06-24T07:42:59.1173806Z Received 122433896 of 122433896 (100.0%), 108.8 MBs/sec
+2026-06-24T07:42:59.1175030Z Cache Size: ~117 MB (122433896 B)
+2026-06-24T07:42:59.1204999Z [command]/usr/bin/tar -xf /home/runner/work/_temp/3da46e5f-543a-40fb-8627-4b41da5881cf/cache.tzst -P -C /home/runner/work/ink-garden/ink-garden --use-compress-program unzstd
+2026-06-24T07:42:59.3102236Z Cache restored successfully
+2026-06-24T07:42:59.3150499Z Cache restored from key: node-cache-Linux-x64-npm-ecc20f1c1cc29aafa92dfacda12384e6c953b5a48a01473dbb9d9791ec44f933

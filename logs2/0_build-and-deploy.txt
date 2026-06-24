@@ -1,0 +1,209 @@
+﻿2026-06-24T07:42:51.0827902Z Current runner version: '2.335.1'
+2026-06-24T07:42:51.0851686Z ##[group]Runner Image Provisioner
+2026-06-24T07:42:51.0852605Z Hosted Compute Agent
+2026-06-24T07:42:51.0853155Z Version: 20260611.554
+2026-06-24T07:42:51.0853772Z Commit: 5e0782fdc9014723d3be820dd114dd31555c2bd1
+2026-06-24T07:42:51.0854417Z Build Date: 2026-06-11T21:40:46Z
+2026-06-24T07:42:51.0855029Z Worker ID: {e9030b5c-17b0-4a0d-a7e9-0861fd8e6f06}
+2026-06-24T07:42:51.0855697Z Azure Region: southcentralus
+2026-06-24T07:42:51.0856277Z ##[endgroup]
+2026-06-24T07:42:51.0857615Z ##[group]Operating System
+2026-06-24T07:42:51.0858181Z Ubuntu
+2026-06-24T07:42:51.0858711Z 24.04.4
+2026-06-24T07:42:51.0859177Z LTS
+2026-06-24T07:42:51.0859650Z ##[endgroup]
+2026-06-24T07:42:51.0860433Z ##[group]Runner Image
+2026-06-24T07:42:51.0860986Z Image: ubuntu-24.04
+2026-06-24T07:42:51.0861472Z Version: 20260615.205.1
+2026-06-24T07:42:51.0862627Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260615.205/images/ubuntu/Ubuntu2404-Readme.md
+2026-06-24T07:42:51.0864317Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260615.205
+2026-06-24T07:42:51.0865186Z ##[endgroup]
+2026-06-24T07:42:51.0866296Z ##[group]GITHUB_TOKEN Permissions
+2026-06-24T07:42:51.0868354Z Contents: read
+2026-06-24T07:42:51.0868967Z Metadata: read
+2026-06-24T07:42:51.0869475Z Pages: write
+2026-06-24T07:42:51.0870133Z ##[endgroup]
+2026-06-24T07:42:51.0872145Z Secret source: Actions
+2026-06-24T07:42:51.0872834Z Prepare workflow directory
+2026-06-24T07:42:51.1233949Z Prepare all required actions
+2026-06-24T07:42:51.1270517Z Getting action download info
+2026-06-24T07:42:51.4103633Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-06-24T07:42:51.5019501Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-06-24T07:42:51.6088239Z Download action repository 'actions/upload-pages-artifact@v3' (SHA:56afc609e74202658d3ffba0e8f6dda462b719fa)
+2026-06-24T07:42:51.7997197Z Download action repository 'actions/deploy-pages@v4' (SHA:d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e)
+2026-06-24T07:42:52.6031921Z Getting action download info
+2026-06-24T07:42:52.7157197Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-06-24T07:42:52.9266535Z Complete job name: build-and-deploy
+2026-06-24T07:42:53.0141983Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-06-24T07:42:53.0152996Z ##[group]Run actions/checkout@v4
+2026-06-24T07:42:53.0154186Z with:
+2026-06-24T07:42:53.0154988Z   repository: bsn652/ink-garden
+2026-06-24T07:42:53.0163933Z   token: ***
+2026-06-24T07:42:53.0164695Z   ssh-strict: true
+2026-06-24T07:42:53.0165479Z   ssh-user: git
+2026-06-24T07:42:53.0166326Z   persist-credentials: true
+2026-06-24T07:42:53.0167196Z   clean: true
+2026-06-24T07:42:53.0168001Z   sparse-checkout-cone-mode: true
+2026-06-24T07:42:53.0168950Z   fetch-depth: 1
+2026-06-24T07:42:53.0169732Z   fetch-tags: false
+2026-06-24T07:42:53.0170599Z   show-progress: true
+2026-06-24T07:42:53.0171399Z   lfs: false
+2026-06-24T07:42:53.0172195Z   submodules: false
+2026-06-24T07:42:53.0173000Z   set-safe-directory: true
+2026-06-24T07:42:53.0174106Z ##[endgroup]
+2026-06-24T07:42:53.1143103Z Syncing repository: bsn652/ink-garden
+2026-06-24T07:42:53.1146527Z ##[group]Getting Git version info
+2026-06-24T07:42:53.1148605Z Working directory is '/home/runner/work/ink-garden/ink-garden'
+2026-06-24T07:42:53.1151233Z [command]/usr/bin/git version
+2026-06-24T07:42:53.1224095Z git version 2.54.0
+2026-06-24T07:42:53.1252517Z ##[endgroup]
+2026-06-24T07:42:53.1270719Z Temporarily overriding HOME='/home/runner/work/_temp/f5545648-afb6-48da-ba4e-4b3e622aa616' before making global git config changes
+2026-06-24T07:42:53.1275751Z Adding repository directory to the temporary git global config as a safe directory
+2026-06-24T07:42:53.1279611Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ink-garden/ink-garden
+2026-06-24T07:42:53.1322546Z Deleting the contents of '/home/runner/work/ink-garden/ink-garden'
+2026-06-24T07:42:53.1327189Z ##[group]Initializing the repository
+2026-06-24T07:42:53.1333048Z [command]/usr/bin/git init /home/runner/work/ink-garden/ink-garden
+2026-06-24T07:42:53.1433136Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-06-24T07:42:53.1436229Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-06-24T07:42:53.1439235Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-06-24T07:42:53.1441831Z hint: call:
+2026-06-24T07:42:53.1443033Z hint:
+2026-06-24T07:42:53.1444615Z hint: 	git config --global init.defaultBranch <name>
+2026-06-24T07:42:53.1446469Z hint:
+2026-06-24T07:42:53.1448236Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-06-24T07:42:53.1451458Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-06-24T07:42:53.1453779Z hint:
+2026-06-24T07:42:53.1455024Z hint: 	git branch -m <name>
+2026-06-24T07:42:53.1456463Z hint:
+2026-06-24T07:42:53.1458460Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-06-24T07:42:53.1469504Z Initialized empty Git repository in /home/runner/work/ink-garden/ink-garden/.git/
+2026-06-24T07:42:53.1478467Z [command]/usr/bin/git remote add origin https://github.com/bsn652/ink-garden
+2026-06-24T07:42:53.1516038Z ##[endgroup]
+2026-06-24T07:42:53.1518449Z ##[group]Disabling automatic garbage collection
+2026-06-24T07:42:53.1520977Z [command]/usr/bin/git config --local gc.auto 0
+2026-06-24T07:42:53.1548029Z ##[endgroup]
+2026-06-24T07:42:53.1549511Z ##[group]Setting up auth
+2026-06-24T07:42:53.1556290Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-06-24T07:42:53.1591621Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-06-24T07:42:53.1881585Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-06-24T07:42:53.1906864Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-06-24T07:42:53.2077803Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-06-24T07:42:53.2106097Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-06-24T07:42:53.2278421Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-06-24T07:42:53.2305832Z ##[endgroup]
+2026-06-24T07:42:53.2307205Z ##[group]Fetching the repository
+2026-06-24T07:42:53.2316575Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +92ba669f5c0e47cfec17f33bc652754aa7ec9d71:refs/remotes/origin/master
+2026-06-24T07:42:53.6072065Z From https://github.com/bsn652/ink-garden
+2026-06-24T07:42:53.6074267Z  * [new ref]         92ba669f5c0e47cfec17f33bc652754aa7ec9d71 -> origin/master
+2026-06-24T07:42:53.6104533Z ##[endgroup]
+2026-06-24T07:42:53.6105876Z ##[group]Determining the checkout info
+2026-06-24T07:42:53.6107482Z ##[endgroup]
+2026-06-24T07:42:53.6111609Z [command]/usr/bin/git sparse-checkout disable
+2026-06-24T07:42:53.6148045Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-06-24T07:42:53.6169758Z ##[group]Checking out the ref
+2026-06-24T07:42:53.6172313Z [command]/usr/bin/git checkout --progress --force -B master refs/remotes/origin/master
+2026-06-24T07:42:53.6241050Z Reset branch 'master'
+2026-06-24T07:42:53.6242838Z branch 'master' set up to track 'origin/master'.
+2026-06-24T07:42:53.6246308Z ##[endgroup]
+2026-06-24T07:42:53.6277189Z [command]/usr/bin/git log -1 --format=%H
+2026-06-24T07:42:53.6295267Z 92ba669f5c0e47cfec17f33bc652754aa7ec9d71
+2026-06-24T07:42:53.6590353Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-06-24T07:42:53.6594518Z ##[group]Run actions/setup-node@v4
+2026-06-24T07:42:53.6595385Z with:
+2026-06-24T07:42:53.6596046Z   node-version: 20
+2026-06-24T07:42:53.6596758Z   cache: npm
+2026-06-24T07:42:53.6597526Z   cache-dependency-path: package-lock.json
+2026-06-24T07:42:53.6598479Z   always-auth: false
+2026-06-24T07:42:53.6599215Z   check-latest: false
+2026-06-24T07:42:53.6607747Z   token: ***
+2026-06-24T07:42:53.6608473Z ##[endgroup]
+2026-06-24T07:42:53.8157796Z Attempting to download 20...
+2026-06-24T07:42:53.8261608Z (node:2211) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-06-24T07:42:53.8265500Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-06-24T07:42:54.6648417Z Acquiring 20.20.2 - x64 from https://github.com/actions/node-versions/releases/download/20.20.2-23521894959/node-20.20.2-linux-x64.tar.gz
+2026-06-24T07:42:55.1421034Z Extracting ...
+2026-06-24T07:42:55.1601360Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/7bd3a4da-3df6-4c89-9240-5e6d6c336f39 -f /home/runner/work/_temp/739cf8b0-7fc1-403c-abe9-c7ec799fbdce
+2026-06-24T07:42:56.1124825Z Adding to the cache ...
+2026-06-24T07:42:57.3016085Z ##[group]Environment details
+2026-06-24T07:42:57.6178550Z node: v20.20.2
+2026-06-24T07:42:57.6179028Z npm: 10.8.2
+2026-06-24T07:42:57.6179391Z yarn: 1.22.22
+2026-06-24T07:42:57.6180230Z ##[endgroup]
+2026-06-24T07:42:57.6198072Z [command]/opt/hostedtoolcache/node/20.20.2/x64/bin/npm config get cache
+2026-06-24T07:42:57.7183548Z /home/runner/.npm
+2026-06-24T07:42:57.8962194Z Cache hit for: node-cache-Linux-x64-npm-ecc20f1c1cc29aafa92dfacda12384e6c953b5a48a01473dbb9d9791ec44f933
+2026-06-24T07:42:57.9058211Z (node:2211) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-06-24T07:42:59.0456508Z Received 118239592 of 122433896 (96.6%), 112.6 MBs/sec
+2026-06-24T07:42:59.1173959Z Received 122433896 of 122433896 (100.0%), 108.8 MBs/sec
+2026-06-24T07:42:59.1175045Z Cache Size: ~117 MB (122433896 B)
+2026-06-24T07:42:59.1205027Z [command]/usr/bin/tar -xf /home/runner/work/_temp/3da46e5f-543a-40fb-8627-4b41da5881cf/cache.tzst -P -C /home/runner/work/ink-garden/ink-garden --use-compress-program unzstd
+2026-06-24T07:42:59.3102269Z Cache restored successfully
+2026-06-24T07:42:59.3150520Z Cache restored from key: node-cache-Linux-x64-npm-ecc20f1c1cc29aafa92dfacda12384e6c953b5a48a01473dbb9d9791ec44f933
+2026-06-24T07:42:59.3290569Z ##[group]Run npm ci
+2026-06-24T07:42:59.3290920Z [36;1mnpm ci[0m
+2026-06-24T07:42:59.3418118Z shell: /usr/bin/bash -e {0}
+2026-06-24T07:42:59.3418426Z ##[endgroup]
+2026-06-24T07:43:08.0440895Z 
+2026-06-24T07:43:08.0447959Z added 521 packages, and audited 522 packages in 9s
+2026-06-24T07:43:08.0448323Z 
+2026-06-24T07:43:08.0448530Z 271 packages are looking for funding
+2026-06-24T07:43:08.0448835Z   run `npm fund` for details
+2026-06-24T07:43:08.0823833Z 
+2026-06-24T07:43:08.0824654Z 5 vulnerabilities (4 moderate, 1 high)
+2026-06-24T07:43:08.0825103Z 
+2026-06-24T07:43:08.0825485Z To address all issues (including breaking changes), run:
+2026-06-24T07:43:08.0826090Z   npm audit fix --force
+2026-06-24T07:43:08.0826341Z 
+2026-06-24T07:43:08.0826550Z Run `npm audit` for details.
+2026-06-24T07:43:08.1146838Z ##[group]Run npx next build
+2026-06-24T07:43:08.1147157Z [36;1mnpx next build[0m
+2026-06-24T07:43:08.1168267Z shell: /usr/bin/bash -e {0}
+2026-06-24T07:43:08.1168554Z ##[endgroup]
+2026-06-24T07:43:08.7014811Z ⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+2026-06-24T07:43:08.7162990Z Attention: Next.js now collects completely anonymous telemetry regarding usage.
+2026-06-24T07:43:08.7164159Z This information is used to shape Next.js' roadmap and prioritize features.
+2026-06-24T07:43:08.7165522Z You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+2026-06-24T07:43:08.7166658Z https://nextjs.org/telemetry
+2026-06-24T07:43:08.7166951Z 
+2026-06-24T07:43:08.7284835Z ▲ Next.js 16.2.9 (Turbopack)
+2026-06-24T07:43:08.7286082Z 
+2026-06-24T07:43:08.7964983Z   Creating an optimized production build ...
+2026-06-24T07:43:12.7701211Z ✓ Compiled successfully in 3.8s
+2026-06-24T07:43:12.7741143Z   Running TypeScript ...
+2026-06-24T07:43:16.3986164Z   Finished TypeScript in 3.6s ...
+2026-06-24T07:43:16.4024607Z   Collecting page data using 3 workers ...
+2026-06-24T07:43:16.8248152Z   Generating static pages using 3 workers (0/8) ...
+2026-06-24T07:43:16.9917775Z ⨯ useSearchParams() should be wrapped in a suspense boundary at page "/article". Read more: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+2026-06-24T07:43:16.9919644Z     at S (/home/runner/work/ink-garden/ink-garden/.next/server/chunks/ssr/node_modules_next_1iemwhs._.js:2:2692)
+2026-06-24T07:43:16.9921238Z     at r (/home/runner/work/ink-garden/ink-garden/.next/server/chunks/ssr/node_modules_next_1iemwhs._.js:4:6760)
+2026-06-24T07:43:16.9922478Z     at /home/runner/work/ink-garden/ink-garden/.next/server/chunks/ssr/[root-of-the-server]__0dr6muq._.js:1:174329
+2026-06-24T07:43:16.9924089Z     at an (/home/runner/work/ink-garden/ink-garden/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:84267)
+2026-06-24T07:43:16.9925792Z     at ai (/home/runner/work/ink-garden/ink-garden/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:86086)
+2026-06-24T07:43:16.9927485Z     at ai (/home/runner/work/ink-garden/ink-garden/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:104615)
+2026-06-24T07:43:16.9928778Z     at al (/home/runner/work/ink-garden/ink-garden/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:107860)
+2026-06-24T07:43:16.9929665Z     at as (/home/runner/work/ink-garden/ink-garden/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:105275)
+2026-06-24T07:43:16.9930807Z     at am (/home/runner/work/ink-garden/ink-garden/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:112789)
+2026-06-24T07:43:16.9931762Z     at au (/home/runner/work/ink-garden/ink-garden/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:109892)
+2026-06-24T07:43:16.9932629Z Error occurred prerendering page "/article". Read more: https://nextjs.org/docs/messages/prerender-error
+2026-06-24T07:43:16.9933295Z Export encountered an error on /article/page: /article, exiting the build.
+2026-06-24T07:43:17.0033256Z ⨯ Next.js build worker exited with code: 1 and signal: null
+2026-06-24T07:43:17.0225444Z ##[error]Process completed with exit code 1.
+2026-06-24T07:43:17.0367279Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-06-24T07:43:17.0368455Z Post job cleanup.
+2026-06-24T07:43:17.1159572Z [command]/usr/bin/git version
+2026-06-24T07:43:17.1193710Z git version 2.54.0
+2026-06-24T07:43:17.1227440Z Temporarily overriding HOME='/home/runner/work/_temp/a9821d38-6279-45b6-9000-1e88ec1bf500' before making global git config changes
+2026-06-24T07:43:17.1228967Z Adding repository directory to the temporary git global config as a safe directory
+2026-06-24T07:43:17.1232912Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ink-garden/ink-garden
+2026-06-24T07:43:17.1266429Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-06-24T07:43:17.1296609Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-06-24T07:43:17.1480306Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-06-24T07:43:17.1498399Z http.https://github.com/.extraheader
+2026-06-24T07:43:17.1507929Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-06-24T07:43:17.1535473Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-06-24T07:43:17.1786971Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-06-24T07:43:17.1790223Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-06-24T07:43:17.2030659Z Evaluate and set environment url
+2026-06-24T07:43:17.2035038Z Evaluated environment url: 
+2026-06-24T07:43:17.2035666Z Cleaning up orphan processes
+2026-06-24T07:43:17.2253395Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

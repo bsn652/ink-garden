@@ -1,0 +1,33 @@
+﻿2026-06-24T07:43:08.1146824Z ##[group]Run npx next build
+2026-06-24T07:43:08.1147155Z [36;1mnpx next build[0m
+2026-06-24T07:43:08.1168257Z shell: /usr/bin/bash -e {0}
+2026-06-24T07:43:08.1168549Z ##[endgroup]
+2026-06-24T07:43:08.7014764Z ⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+2026-06-24T07:43:08.7162943Z Attention: Next.js now collects completely anonymous telemetry regarding usage.
+2026-06-24T07:43:08.7164149Z This information is used to shape Next.js' roadmap and prioritize features.
+2026-06-24T07:43:08.7165511Z You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+2026-06-24T07:43:08.7166649Z https://nextjs.org/telemetry
+2026-06-24T07:43:08.7166947Z 
+2026-06-24T07:43:08.7284799Z ▲ Next.js 16.2.9 (Turbopack)
+2026-06-24T07:43:08.7286068Z 
+2026-06-24T07:43:08.7964954Z   Creating an optimized production build ...
+2026-06-24T07:43:12.7701061Z ✓ Compiled successfully in 3.8s
+2026-06-24T07:43:12.7741104Z   Running TypeScript ...
+2026-06-24T07:43:16.3986120Z   Finished TypeScript in 3.6s ...
+2026-06-24T07:43:16.4024579Z   Collecting page data using 3 workers ...
+2026-06-24T07:43:16.8248116Z   Generating static pages using 3 workers (0/8) ...
+2026-06-24T07:43:16.9917729Z ⨯ useSearchParams() should be wrapped in a suspense boundary at page "/article". Read more: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+2026-06-24T07:43:16.9919638Z     at S (/home/runner/work/ink-garden/ink-garden/.next/server/chunks/ssr/node_modules_next_1iemwhs._.js:2:2692)
+2026-06-24T07:43:16.9921230Z     at r (/home/runner/work/ink-garden/ink-garden/.next/server/chunks/ssr/node_modules_next_1iemwhs._.js:4:6760)
+2026-06-24T07:43:16.9922470Z     at /home/runner/work/ink-garden/ink-garden/.next/server/chunks/ssr/[root-of-the-server]__0dr6muq._.js:1:174329
+2026-06-24T07:43:16.9924037Z     at an (/home/runner/work/ink-garden/ink-garden/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:84267)
+2026-06-24T07:43:16.9925788Z     at ai (/home/runner/work/ink-garden/ink-garden/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:86086)
+2026-06-24T07:43:16.9927482Z     at ai (/home/runner/work/ink-garden/ink-garden/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:104615)
+2026-06-24T07:43:16.9928775Z     at al (/home/runner/work/ink-garden/ink-garden/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:107860)
+2026-06-24T07:43:16.9929663Z     at as (/home/runner/work/ink-garden/ink-garden/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:105275)
+2026-06-24T07:43:16.9930804Z     at am (/home/runner/work/ink-garden/ink-garden/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:112789)
+2026-06-24T07:43:16.9931752Z     at au (/home/runner/work/ink-garden/ink-garden/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:109892)
+2026-06-24T07:43:16.9932626Z Error occurred prerendering page "/article". Read more: https://nextjs.org/docs/messages/prerender-error
+2026-06-24T07:43:16.9933293Z Export encountered an error on /article/page: /article, exiting the build.
+2026-06-24T07:43:17.0033208Z ⨯ Next.js build worker exited with code: 1 and signal: null
+2026-06-24T07:43:17.0225409Z ##[error]Process completed with exit code 1.

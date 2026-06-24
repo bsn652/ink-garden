@@ -1,0 +1,8 @@
+2026-06-24T07:42:48.1580000Z Evaluating build-and-deploy.if
+2026-06-24T07:42:48.1580000Z Evaluating: success()
+2026-06-24T07:42:48.1580000Z Result: true
+2026-06-24T07:42:48.7280000Z Requested labels: ubuntu-latest
+2026-06-24T07:42:48.7280000Z Job defined at: bsn652/ink-garden/.github/workflows/deploy.yml@refs/heads/master
+2026-06-24T07:42:48.7280000Z Waiting for a runner to pick up this job...
+2026-06-24T07:42:49.2070000Z Job is about to start running on the hosted runner: GitHub Actions 1000000011
+2026-06-24T07:42:49.2070000Z Job is waiting for a hosted runner to come online.
